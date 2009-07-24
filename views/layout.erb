@@ -24,6 +24,11 @@
               <a href="/page/<%= item[:id] %>"><%= item[:title] %></a>
             </li>
           <% end if @menu_items %>
+          <% if env['warden'].authenticated?(:password) %>
+            <li>
+              <a href="/admin">admin</a>
+            </li>
+          <% end %>
           &nbsp;
         </ul>
       </div>
