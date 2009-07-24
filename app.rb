@@ -40,3 +40,12 @@ helpers do
     end
   end
 end
+
+get '/javascript/lists/link_list.js' do
+  content_type("text/javascript")
+  @links = []
+  Content.all(:region => 'body').each do |content|
+    @links << "[\"#{content.title}\", \"../page/#{content.id}\"]"
+  end
+  erb :"javascripts/link_list", :layout => false
+end

@@ -7,6 +7,8 @@ get %r{/page/([\d]+)$} do |id|
 end
 
 get '/page/new' do
+  show_header
+  show_menu
   protected!
   @content = Content.new
   erb :edit_page, {}, {:action => '/page/create', :method => 'post'}

@@ -6,9 +6,10 @@
     <input type="text" size="30" name="content[title]" value="<%= @content.title %>">
   </p>
   <p>
+    Select body, if you want a normal page.<br />
     region:
     <select name="content[region]">
-      <% %w(header body).each do |region| %>
+      <% %w(body header).each do |region| %>
         <option <%= "selected" if region == @content.region %>><%= region %></option>
       <% end %>
     </select>
