@@ -1,0 +1,8 @@
+.login_label {
+    float: left;
+    width: 70px;
+    margin-top: 5px;
+}
+.login_submit {
+    text-align: right;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="/css/app.css" type="text/css">
+    <!--[if lt IE 8]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+    <script type="text/javascript" src="/javascript/jquery-1.3.2.js"></script>
+    <%= erb(@head_partial, :layout => false) if @head_partial %>
+    <title>TeenyCMS</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="span-24 last">
+        <%= @header_content %>
+      </div>
+      <hr />
+      <div class="span-4">
+        <ul>
+          <% @menu_items.each do |item| %>
+            <li>
+              <a href="/page/<%= item[:id] %>"><%= item[:title] %></a>
+            </li>
+          <% end if @menu_items %>
+          &nbsp;
+        </ul>
+      </div>
+      <div class="span-20 last">
+        <%= yield %>
+
+      </div>
+    </div>
+  </body>
+</html>

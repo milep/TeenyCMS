@@ -1,0 +1,27 @@
+<% @head_partial = :_edit_page_head %>
+
+<form action="<%= action %>" method="post">
+  <input type="hidden" name="_method" value="<%= method %>" />  <p>
+    title:
+    <input type="text" size="30" name="content[title]" value="<%= @content.title %>">
+  </p>
+  <p>
+    region:
+    <select name="content[region]">
+      <% %w(header body).each do |region| %>
+        <option <%= "selected" if region == @content.region %>><%= region %></option>
+      <% end %>
+    </select>
+  </p>
+  <p>
+    include in menu 
+    <input type="checkbox" name="content[include_in_menu]" value="1" <%= "checked" if @content.include_in_menu %>>
+  </p>
+  <p>
+    <textarea name="content[body]" cols="50" rows="15"><%= @content.body %></textarea>
+  </p>
+  <input type="submit" name="save" value="submit" />
+</form>
+
+
+

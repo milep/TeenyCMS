@@ -1,0 +1,15 @@
+<form action="/admin/upload" method="post" ENCTYPE="multipart/form-data">
+  <p>
+    file:
+    <input type="file" size="30" name="file" value="">
+  </p>
+  <input type="submit" name="save" value="submit" />
+</form>
+<% if @filename %>
+<br />
+<p>
+  File was uploaded successfully<br />
+  filename: <%= @filename %> <br />
+  <img src="<%= @filename %>">
+</p>
+<% end %>
