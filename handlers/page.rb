@@ -3,7 +3,11 @@ get %r{/page/([\d]+)$} do |id|
   show_header
   show_menu
   @content = Content.get!(id.to_i)
-  erb :page
+  if @content.template && template_list.include?(@content.template)
+    erb "templates/#{@content.template}".to_sym
+  else
+    erb :page
+  end
 end
 
 get '/page/new' do

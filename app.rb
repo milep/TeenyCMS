@@ -39,6 +39,15 @@ helpers do
       {:id => content.id, :title => content.title}
     end
   end
+
+  def template_list
+    dir = Dir.new(Dir.pwd + "/views/templates")
+    templates = []
+    dir.each do |filename|
+      templates << "#{File.basename(filename, ".erb")}" if File.file?(Dir.pwd + "/views/templates/" + filename)
+    end
+    templates
+  end
 end
 
 get '/javascript/lists/link_list.js' do
@@ -48,4 +57,8 @@ get '/javascript/lists/link_list.js' do
     @links << "[\"#{content.title}\", \"../page/#{content.id}\"]"
   end
   erb :"javascripts/link_list", :layout => false
+end
+
+get '/feedback' do
+  erb :'templates/feedback'
 end

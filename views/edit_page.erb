@@ -1,7 +1,8 @@
 <% @head_partial = :_edit_page_head %>
 
 <form action="<%= action %>" method="post">
-  <input type="hidden" name="_method" value="<%= method %>" />  <p>
+  <input type="hidden" name="_method" value="<%= method %>" />
+  <p>
     title:
     <input type="text" size="30" name="content[title]" value="<%= @content.title %>">
   </p>
@@ -13,6 +14,10 @@
         <option <%= "selected" if region == @content.region %>><%= region %></option>
       <% end %>
     </select>
+  </p>
+  <p>
+    template:
+    <input type="text" size="30" name="content[template]" value="<%= @content.template %>">
   </p>
   <p>
     include in menu 

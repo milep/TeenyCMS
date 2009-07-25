@@ -3,6 +3,7 @@ class Content
   property :id, Serial
   property :title, String
   property :region, String
+  property :template, String
   property :include_in_menu, Boolean
   property :order, Integer
   property :body, Text
@@ -20,7 +21,7 @@ class Content
   end
 
   def self.next_order_value
-    repository(:default).adapter.query("SELECT MAX(`order`) FROM contents") + 1
+    repository(:default).adapter.query("SELECT MAX(`order`) FROM contents").first + 1
   end
   
   private
