@@ -59,6 +59,6 @@ get '/javascript/lists/link_list.js' do
   erb :"javascripts/link_list", :layout => false
 end
 
-get '/feedback' do
-  erb :'templates/feedback'
+get '/testi' do
+  Content.all(:order.gt => 1).map{ |c| c.order }.join(", ")
 end

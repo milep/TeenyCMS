@@ -20,6 +20,14 @@ class Content
     end
   end
 
+  def destroy
+    Content.all(:order.gt => self.order, :include_in_menu => true).each do |content|
+      content.order -= 1
+      content.save
+    end
+    super
+  end
+
   def self.next_order_value
     repository(:default).adapter.query("SELECT MAX(`order`) FROM contents").first + 1
   end

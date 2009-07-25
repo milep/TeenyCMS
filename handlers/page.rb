@@ -64,3 +64,9 @@ post '/page/create' do
   end
 
 end
+
+delete '/page/:id' do
+  content = Content.get!(params[:id].to_i)
+  content.destroy
+  redirect '/admin'
+end
