@@ -6,6 +6,7 @@ require 'handlers/root'
 require 'handlers/admin'
 require 'handlers/files'
 require 'handlers/page'
+require 'handlers/feedback'
 require 'lib/login_management'
 
 configure :development do
