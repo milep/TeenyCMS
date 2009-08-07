@@ -8,9 +8,11 @@ require 'handlers/files'
 require 'handlers/page'
 require 'handlers/feedback'
 require 'lib/login_management'
+require 'yaml'
+
+CONFIG = YAML.load_file("config.yml")
 
 configure :development do
-  #  p 'conf dev'
   begin
     DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/teenycms.sqlite3")
     DataMapper.auto_upgrade!
@@ -19,9 +21,14 @@ configure :development do
   end
 end
 
-#configure :production do
-#  DataMapper.setup(:default, 'teenycms.sqlite3')
-#end
+configure :production do
+  begin
+    DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/teenycms_prod.sqlite3")
+    DataMapper.auto_upgrade!
+  rescue Exception => e
+    p "error: #{e.inspect}"
+  end
+end
 
 
 helpers do
@@ -60,6 +67,3 @@ get '/javascript/lists/link_list.js' do
   erb :"javascripts/link_list", :layout => false
 end
 
-get '/testi' do
-  Content.all(:order.gt => 1).map{ |c| c.order }.join(", ")
-end
