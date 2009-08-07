@@ -1,0 +1,4 @@
+---
+:smtp:
+  :host: mail.inet.fi
+  :port: 25
