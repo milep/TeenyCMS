@@ -52,11 +52,9 @@ end
 
 post '/page/create' do
   protected!
-#  puts "params content: #{params[:content].inspect}"
   content = Content.new(params[:content])
   content.order = Content.next_order_value
   if content.save
-#    puts "save succ"
     content.reload
     redirect "/page/#{content.id}/edit"
   else
