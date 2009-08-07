@@ -1,2 +1,3 @@
 h2. TeenyCMS
+
 Simple CMS written using Sinatra, DataMapper, TinyMCE and Blueprint CSS framework. I'm using this for small personal home page projects. Use as you wish and contributions are welcome.
