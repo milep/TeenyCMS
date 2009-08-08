@@ -29,7 +29,7 @@ class Content
   end
 
   def self.next_order_value
-    repository(:default).adapter.query("SELECT MAX(`order`) FROM contents").first + 1
+    repository(:default).adapter.query("SELECT MAX(`order`) FROM contents").first.to_i + 1
   end
   
   private
