@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'lib/models/user'
 require 'lib/models/content'
+require 'lib/models/setting'
 require 'handlers/session'
 require 'handlers/root'
 require 'handlers/admin'
@@ -16,6 +17,7 @@ configure :development do
   begin
     DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/teenycms.sqlite3")
     DataMapper.auto_upgrade!
+#    Config.auto_migrate! unless Config.table_exists?
   rescue Exception => e
     p "error: #{e.inspect}"
   end

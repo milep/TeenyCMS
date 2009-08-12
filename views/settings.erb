@@ -1,0 +1,15 @@
+<form action="/admin/settings" method="post">
+  <input type="hidden" name="_method" value="put" />
+  <p>
+    page title:
+    <input type="text" size="30" name="setting[page_title]" value="<%= @settings['page_title'] %>">
+  </p>
+  <p>
+    custom css: <br />
+    <textarea name="setting[custom_css]" rows="10" cols="50"><%= @settings['custom_css'] %></textarea>
+  </p>
+  <input type="submit" name="save" value="submit" />
+</form>
+
+
+

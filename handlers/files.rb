@@ -27,3 +27,8 @@ get '/javascript/lists/image_list.js' do
   end
   erb :"javascripts/image_list", :layout => false
 end
+
+get '/css/custom.css' do
+  content_type("text/css")
+  Setting.value('custom_css')
+end
