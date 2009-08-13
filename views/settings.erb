@@ -1,11 +1,15 @@
 <form action="/admin/settings" method="post">
   <input type="hidden" name="_method" value="put" />
   <p>
-    page title:
+    Page title:
     <input type="text" size="30" name="setting[page_title]" value="<%= @settings['page_title'] %>">
   </p>
   <p>
-    custom css: <br />
+    Google Analytics Code:
+    <input type="text" size="30" name="setting[google_analytics_code]" value="<%= @settings['google_analytics_code'] %>">
+  </p>
+  <p>
+    Custom css: <br />
     <textarea name="setting[custom_css]" rows="10" cols="50"><%= @settings['custom_css'] %></textarea>
   </p>
   <input type="submit" name="save" value="submit" />
