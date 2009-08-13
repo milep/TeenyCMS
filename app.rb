@@ -32,6 +32,16 @@ configure :production do
   end
 end
 
+CONTENT_TYPES = {:html => 'text/html', :css => 'text/css', :js  => 'application/javascript'}
+
+before do
+  request_uri = case request.env['REQUEST_URI']
+    when /\.css$/ : :css
+    when /\.js$/  : :js
+    else          :html
+  end
+  content_type CONTENT_TYPES[request_uri], :charset => 'utf-8'
+end
 
 helpers do
   def protected!
