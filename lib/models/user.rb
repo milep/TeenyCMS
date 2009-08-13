@@ -13,7 +13,7 @@ class User
   end
 
   def self.authenticate(login, password)
-    User.new(1) if login == 'admin' && password == 'admin'
+    User.new(1) if login == CONFIG[:admin][:name] && password == CONFIG[:admin][:password]
   end
 
   def self.get(id)
