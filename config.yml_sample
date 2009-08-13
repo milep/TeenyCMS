@@ -5,3 +5,4 @@
 :admin:
   :name: admin
   :password: pass
+  :email: some@body.com

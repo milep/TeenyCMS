@@ -4,7 +4,7 @@ post '/modules/feedback' do
   feedback = ""
   begin
     Pony.mail(
-      :to => 'maleppanen@gmail.com',
+      :to => CONFIG[:admin][:email],
       :from => params[:feedback][:email],
       :subject => params[:feedback][:subject],
       :body => params[:feedback][:body],
