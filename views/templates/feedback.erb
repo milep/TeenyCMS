@@ -1,18 +1,19 @@
 <%= @content.body %>
-
-<form action="/modules/feedback" method="post">
-  <p>
-    Otsikko:<br />
-    <input type="text" size="30" name="feedback[subject]" value="">
-  </p>
-  <p>
-    Sähköpostiosoitteesi:<br />
-    <input type="text" size="30" name="feedback[email]" value="">
-  </p>
-  <p>
-    Viesti:<br />
-    <textarea name="feedback[body]" cols="50" rows="15"></textarea>
-  </p>
-  <input type="submit" name="send" value="Lähetä" />
-</form>
+<div id="feedback">
+  <form action="/modules/feedback" method="post">
+    <p>
+      Otsikko:<br />
+      <input type="text" size="30" name="feedback[subject]" value="">
+    </p>
+    <p>
+      Sähköpostiosoitteesi:<br />
+      <input type="text" size="30" name="feedback[email]" value="">
+    </p>
+    <p>
+      Viesti:<br />
+      <textarea name="feedback[body]" cols="50" rows="15"></textarea>
+    </p>
+    <input type="submit" name="send" value="Lähetä" />
+  </form>
+</div>
 
