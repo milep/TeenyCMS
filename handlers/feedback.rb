@@ -18,5 +18,5 @@ post '/modules/feedback' do
   feedback << params[:feedback][:body]
 
   content_type("text/plain")
-  feedback
+  redirect '/'
 end
