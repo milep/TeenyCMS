@@ -1,3 +1,5 @@
+<% @head_partial = "templates/_feedback_head".to_sym %>
+<% @body_tag_extras = 'onload="load()" onunload="GUnload()"' %>
 <%= @content.body %>
 <div id="feedback">
   <form action="/modules/feedback" method="post">

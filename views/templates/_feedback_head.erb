@@ -1,0 +1,30 @@
+    <script
+src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAANuYsEPz7J6N9DCSUIcrMfRSbDSLPDcj5LGfDNM39eVWGEMNbrRTyXKSA74gdnyMuP5NsxlJQGmpgow"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new
+GMap2(document.getElementById("map"));
+        var point = new GLatLng(62.611351071286606,
+25.70474624633789);
+
+        map.setCenter(point, 15);
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        map.setMapType(G_NORMAL_MAP);
+
+        var marker = new GMarker(point);
+
+
+
+        map.addOverlay(marker);
+
+
+      }
+    }
+
+    //]]>
+    </script>

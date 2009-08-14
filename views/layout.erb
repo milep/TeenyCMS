@@ -12,7 +12,7 @@
     <%= erb(@head_partial, :layout => false) if @head_partial %>
     <title><%= Setting.value('page_title') %></title>
   </head>
-  <body>
+  <body <%= @body_tag_extras %>>
     <div class="container">
       <div id="header" class="span-24 last">
         <%= @header_content %>
